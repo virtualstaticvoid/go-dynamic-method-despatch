@@ -77,6 +77,7 @@ func (s *subscriber) SubscribeTo(message interface{}, handler interface{}) error
 		s.handlers[messageType] = handler
 		return nil
 	}
+	// !!! ideally should be a panic, since this error is typically a programming error !!!
 	return fmt.Errorf("%q cannot be used to handle messages of type %q", handlerType, messageType)
 }
 
